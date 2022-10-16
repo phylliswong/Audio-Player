@@ -1,6 +1,7 @@
 const express = require('express', '4.16.3');
 const path = require('path');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (request, response) => {
   response.send('Hello World!');
@@ -8,6 +9,6 @@ app.get('/', (request, response) => {
 
 app.use(express.static(path.join(__dirname, '../www')));
 
-app.listen(3000, function() {
-  console.log('Web app listening on port 3000');
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
