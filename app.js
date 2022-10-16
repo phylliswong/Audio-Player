@@ -3,11 +3,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, './www/index.html'));
-});
+app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(express.static(path.join(__dirname, '../www')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public'));
+});
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
